@@ -2,7 +2,7 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Fitness Formula — 40 Kunlik Tana Transformatsiyasi</title>
     <meta name="description" content="Fitness Formula — Sirojiddin Sharafov tomonidan yuritiladigan 40 kunlik tana o'zgartirish dasturi. Professional fitnes murabbiy bilan sifatli natijaga erishing!">
     <link rel="icon" type="image/jpeg" href="images/logo.jpg">
@@ -18,18 +18,28 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#hero" class="nav-logo">
-                <img src="images/logo.jpg" alt="Fitness Formula" class="nav-logo-img">
+                <img src="images/logo.jpg" onerror="this.onerror=null; this.src='logo.jpg'" alt="Fitness Formula" class="nav-logo-img">
             </a>
+            <div class="nav-backdrop" id="navBackdrop"></div>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#hero" class="nav-link active">Bosh sahifa</a></li>
-                <li><a href="#about" class="nav-link">Biz haqimizda</a></li>
-                <li><a href="#program" class="nav-link">Dastur</a></li>
-                <li><a href="#trainer" class="nav-link">Murabbiy</a></li>
-                <li><a href="#nutrition" class="nav-link">Sport ozuqalari</a></li>
-                <li><a href="#results" class="nav-link">Natijalar</a></li>
-                <li><a href="#contact" class="nav-link">Bog'lanish</a></li>
+                <li class="nav-menu-header">
+                    <img src="images/logo.jpg" onerror="this.onerror=null; this.src='logo.jpg'" alt="Fitness Formula" class="mobile-menu-logo">
+                    <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Yopish">&times;</button>
+                </li>
+                <li><a href="#hero" class="nav-link active"><i class="fas fa-home mobile-nav-icon"></i> Bosh sahifa</a></li>
+                <li><a href="#about" class="nav-link"><i class="fas fa-info-circle mobile-nav-icon"></i> Biz haqimizda</a></li>
+                <li><a href="#program" class="nav-link"><i class="fas fa-calendar-alt mobile-nav-icon"></i> Dastur</a></li>
+                <li><a href="#trainer" class="nav-link"><i class="fas fa-user-ninja mobile-nav-icon"></i> Murabbiy</a></li>
+                <li><a href="#nutrition" class="nav-link"><i class="fas fa-blender mobile-nav-icon"></i> Sport ozuqalari</a></li>
+                <li><a href="#results" class="nav-link"><i class="fas fa-trophy mobile-nav-icon"></i> Natijalar</a></li>
+                <li><a href="#contact" class="nav-link"><i class="fas fa-envelope mobile-nav-icon"></i> Bog'lanish</a></li>
+                <li class="mobile-menu-cta">
+                    <a href="#contact" class="btn btn-primary btn-full">
+                        <i class="fas fa-bolt"></i> DASTURGA YOZILISH
+                    </a>
+                </li>
             </ul>
-            <a href="#contact" class="nav-cta">BOSHLASH</a>
+            <a href="#contact" class="nav-cta desktop-only">BOSHLASH</a>
             <button class="hamburger" id="hamburger" aria-label="Menyu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -40,10 +50,11 @@
 
     <!-- ========== HERO SECTION ========== -->
     <section class="hero" id="hero">
-        <!-- Background video -->
+        <!-- Background video with poster fallback -->
         <div class="hero-bg-video">
-            <video autoplay muted loop playsinline id="heroBgVideo">
+            <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="images/logo.jpg" id="heroBgVideo">
                 <source src="video/logo.mp4" type="video/mp4">
+                <source src="logo.mp4" type="video/mp4">
             </video>
         </div>
         <div class="hero-overlay"></div>
@@ -52,21 +63,25 @@
             <div class="hero-badge">
                 <i class="fas fa-fire"></i> 40 KUNLIK TRANSFORMATSIYA DASTURI
             </div>
-            <!-- Logo video -->
+            
+            <!-- Logo video wrapper -->
             <div class="hero-video-wrapper">
-                <video autoplay muted loop playsinline class="hero-logo-video">
+                <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="images/logo.jpg" class="hero-logo-video">
                     <source src="video/logo.mp4" type="video/mp4">
+                    <source src="logo.mp4" type="video/mp4">
                 </video>
             </div>
+            
             <h1 class="hero-title">
                 FITNESS <span class="accent">FORMULA</span>
             </h1>
             <p class="hero-subtitle">
-                40 kun ichida tanangizni o'zgartiring. Professional murabbiy, individual yondashuv, kafolatlangan natija.
+                40 kun ichida tanangizni o'zgartiring. Professional murabbiy <strong>Sirojiddin Sharafov</strong> bilan individual yondashuv va kafolatlangan natija.
             </p>
+            
             <div class="hero-stats">
                 <div class="stat-item">
-                    <span class="stat-number" data-target="500">0</span>+
+                    <span class="stat-number" data-target="500">0</span><span class="stat-plus">+</span>
                     <span class="stat-label">Ishtirokchilar</span>
                 </div>
                 <div class="stat-item">
@@ -74,10 +89,11 @@
                     <span class="stat-label">Kun dastur</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number" data-target="95">0</span>%
+                    <span class="stat-number" data-target="95">0</span><span class="stat-percent">%</span>
                     <span class="stat-label">Natija</span>
                 </div>
             </div>
+            
             <div class="hero-buttons">
                 <a href="#program" class="btn btn-primary">
                     <i class="fas fa-bolt"></i> DASTURNI KO'RISH
@@ -106,7 +122,9 @@
             <div class="about-compact">
                 <!-- Main card with logo -->
                 <div class="about-hero-card">
-                    <img src="images/logo.jpg" alt="Fitness Formula" class="about-logo-img">
+                    <div class="about-logo-wrapper">
+                        <img src="images/logo.jpg" onerror="this.onerror=null; this.src='logo.jpg'" alt="Fitness Formula" class="about-logo-img">
+                    </div>
                     <div class="about-hero-text">
                         <h3>Fitness Formula — bu dastur</h3>
                         <p>
@@ -117,30 +135,32 @@
                         </p>
                     </div>
                 </div>
+                
                 <!-- Compact pill buttons -->
                 <div class="about-pills">
                     <div class="pill-btn">
-                        <i class="fas fa-bullseye"></i>
+                        <div class="pill-icon-box"><i class="fas fa-bullseye"></i></div>
                         <div>
                             <strong>Maqsadimiz</strong>
                             <span>40 kunda sifatli natija — ozish, massa yig'ish, umumiy fitnes</span>
                         </div>
                     </div>
                     <div class="pill-btn">
-                        <i class="fas fa-chart-line"></i>
+                        <div class="pill-icon-box"><i class="fas fa-chart-line"></i></div>
                         <div>
                             <strong>Metodologiya</strong>
                             <span>Ilmiy mashg'ulot, kaloriya hisoblash, makro balans, progress tracking</span>
                         </div>
                     </div>
                     <div class="pill-btn">
-                        <i class="fas fa-users"></i>
+                        <div class="pill-icon-box"><i class="fas fa-users"></i></div>
                         <div>
                             <strong>Kimlar uchun?</strong>
                             <span>Boshlang'ichdan tajribaligacha — individual dastur tuziladi</span>
                         </div>
                     </div>
                 </div>
+                
                 <!-- Feature chips -->
                 <div class="about-chips">
                     <span class="chip"><i class="fas fa-check-circle"></i> Individual reja</span>
@@ -161,14 +181,16 @@
                 <span class="section-tag"><i class="fas fa-calendar-alt"></i> DASTUR</span>
                 <h2 class="section-title">40 Kunlik <span class="accent">Transformatsiya</span></h2>
                 <div class="section-line"></div>
+                <p class="section-desc">Har bir bosqich aniq maqsad va tartibli reja bilan ishlab chiqilgan</p>
             </div>
+            
             <!-- Compact program steps as buttons -->
             <div class="program-steps">
                 <div class="step-btn">
                     <div class="step-number">01</div>
                     <div class="step-info">
                         <h4>Tayyorgarlik <span class="step-days">1-7 kun</span></h4>
-                        <p>O'lchovlar, ovqatlanish rejasi, texnikani o'rganish</p>
+                        <p>O'lchovlar, ovqatlanish rejasi, asosiy texnikani o'rganish</p>
                     </div>
                     <i class="fas fa-arrow-right step-arrow"></i>
                 </div>
@@ -176,7 +198,7 @@
                     <div class="step-number">02</div>
                     <div class="step-info">
                         <h4>Intensiv trening <span class="step-days">8-21 kun</span></h4>
-                        <p>Og'irliklar, kardio, split dastur, dieta nazorati</p>
+                        <p>Og'irliklar, kardio, split dastur, qat'iy parhez nazorati</p>
                     </div>
                     <i class="fas fa-arrow-right step-arrow"></i>
                 </div>
@@ -184,7 +206,7 @@
                     <div class="step-number">03</div>
                     <div class="step-info">
                         <h4>Mustahkamlash <span class="step-days">22-35 kun</span></h4>
-                        <p>Supersetlar, progressiv overload, tana kompozitsiyasi</p>
+                        <p>Supersetlar, progressiv overload, tana kompozitsiyasi o'zgarishi</p>
                     </div>
                     <i class="fas fa-arrow-right step-arrow"></i>
                 </div>
@@ -192,9 +214,9 @@
                     <div class="step-number">04</div>
                     <div class="step-info">
                         <h4>Final natija <span class="step-days">36-40 kun</span></h4>
-                        <p>Yakuniy o'lchovlar, before/after, kelgusi reja</p>
+                        <p>Yakuniy o'lchovlar, before/after fotosuratlar va keyingi fitnes reja</p>
                     </div>
-                    <i class="fas fa-trophy step-arrow" style="color: var(--accent);"></i>
+                    <i class="fas fa-trophy step-arrow trophy-accent"></i>
                 </div>
             </div>
             <div class="program-cta">
@@ -210,9 +232,11 @@
         <div class="container">
             <div class="trainer-grid">
                 <div class="trainer-image">
-                    <img src="images/sirojiddin.jpg" alt="Sirojiddin Sharafov" class="trainer-photo">
-                    <div class="trainer-badge">
-                        <i class="fas fa-medal"></i> Professional Murabbiy
+                    <div class="trainer-photo-box">
+                        <img src="images/sirojiddin.jpg" onerror="this.onerror=null; this.src='sirojiddin.jpg'" alt="Sirojiddin Sharafov" class="trainer-photo">
+                        <div class="trainer-badge">
+                            <i class="fas fa-medal"></i> Professional Murabbiy
+                        </div>
                     </div>
                 </div>
                 <div class="trainer-info">
@@ -260,10 +284,10 @@
                         </div>
                     </div>
                     <div class="trainer-socials">
-                        <a href="https://www.instagram.com/s_sharafov" target="_blank" class="btn btn-outline trainer-social-btn">
+                        <a href="https://www.instagram.com/s_sharafov" target="_blank" rel="noopener noreferrer" class="btn btn-outline trainer-social-btn">
                             <i class="fab fa-instagram"></i> @s_sharafov
                         </a>
-                        <a href="https://www.instagram.com/fitnessformulasi" target="_blank" class="btn btn-primary trainer-social-btn">
+                        <a href="https://www.instagram.com/fitnessformulasi" target="_blank" rel="noopener noreferrer" class="btn btn-primary trainer-social-btn">
                             <i class="fab fa-instagram"></i> @fitnessformulasi
                         </a>
                     </div>
@@ -361,26 +385,6 @@
                 <p class="section-desc">Instagram sahifamizdagi haqiqiy transformatsiyalar</p>
             </div>
             
-            <!-- Instagram embeds -->
-            <div class="results-instagram">
-                <div class="ig-embed-container">
-                    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/fitnessformulasi/" data-instgrm-version="14" style="background:#000; border:0; border-radius:12px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-                        <div style="padding:16px;">
-                            <a href="https://www.instagram.com/fitnessformulasi/" style="background:#000; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
-                                <div style="display:flex; flex-direction:row; align-items:center;">
-                                    <div style="background-color:#1DA1F2; border-radius:50%; height:40px; width:40px; display:flex; align-items:center; justify-content:center;">
-                                        <span style="color:white; font-weight:bold; font-size:18px;">FF</span>
-                                    </div>
-                                    <div style="margin-left:14px;">
-                                        <span style="color:#fff; font-weight:600;">@fitnessformulasi</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </blockquote>
-                </div>
-            </div>
-
             <div class="results-grid">
                 <div class="result-card">
                     <div class="result-embed">
@@ -392,12 +396,13 @@
                     </div>
                     <div class="result-info">
                         <h4>Tana Transformatsiyasi</h4>
-                        <p>40 kun ichida ajoyib natijaga erishildi</p>
-                        <a href="https://www.instagram.com/fitnessformulasi" target="_blank" class="result-link">
+                        <p>40 kun ichida tana yog' foizi kamaytirilib, qomat to'liq shakllantirildi.</p>
+                        <a href="https://www.instagram.com/fitnessformulasi" target="_blank" rel="noopener noreferrer" class="result-link">
                             <i class="fab fa-instagram"></i> Instagramda ko'rish
                         </a>
                     </div>
                 </div>
+                
                 <div class="result-card">
                     <div class="result-embed">
                         <div class="ig-placeholder">
@@ -407,13 +412,14 @@
                         </div>
                     </div>
                     <div class="result-info">
-                        <h4>Vazn Yo'qotish</h4>
-                        <p>To'g'ri ovqatlanish va mashg'ulot bilan</p>
-                        <a href="https://www.instagram.com/fitnessformulasi" target="_blank" class="result-link">
+                        <h4>-12 kg Vazn Yo'qotish</h4>
+                        <p>To'g'ri ovqatlanish ratsioni va individual kardiomashg'ulotlar natijasi.</p>
+                        <a href="https://www.instagram.com/fitnessformulasi" target="_blank" rel="noopener noreferrer" class="result-link">
                             <i class="fab fa-instagram"></i> Instagramda ko'rish
                         </a>
                     </div>
                 </div>
+                
                 <div class="result-card">
                     <div class="result-embed">
                         <div class="ig-placeholder">
@@ -423,18 +429,19 @@
                         </div>
                     </div>
                     <div class="result-info">
-                        <h4>Mushak Massasi</h4>
-                        <p>Sifatli quruq massa yig'ish natijasi</p>
-                        <a href="https://www.instagram.com/fitnessformulasi" target="_blank" class="result-link">
+                        <h4>+7 kg Sifatli Massa</h4>
+                        <p>Progressiv kuch yuklamalari va yuqori oqsilli ratsion evaziga quruq massa.</p>
+                        <a href="https://www.instagram.com/fitnessformulasi" target="_blank" rel="noopener noreferrer" class="result-link">
                             <i class="fab fa-instagram"></i> Instagramda ko'rish
                         </a>
                     </div>
                 </div>
             </div>
+            
             <div class="results-cta">
-                <p>Barcha natijalarni ko'rish uchun Instagram sahifamizga tashrif buyuring</p>
-                <a href="https://www.instagram.com/fitnessformulasi" target="_blank" class="btn btn-primary">
-                    <i class="fab fa-instagram"></i> INSTAGRAMDA KO'PROQ NATIJALAR
+                <p>Barcha natijalar va videolarni ko'rish uchun Instagram sahifamizga tashrif buyuring</p>
+                <a href="https://www.instagram.com/fitnessformulasi" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <i class="fab fa-instagram"></i> INSTAGRAMDA BARCHA NATIJALAR
                 </a>
             </div>
         </div>
@@ -462,60 +469,58 @@
                         <div class="contact-icon"><i class="fab fa-telegram"></i></div>
                         <div>
                             <h4>Telegram</h4>
-                            <a href="https://t.me/fitnessformulasi" target="_blank">@fitnessformulasi</a>
+                            <a href="https://t.me/fitnessformulasi" target="_blank" rel="noopener noreferrer">@fitnessformulasi</a>
                         </div>
                     </div>
                     <div class="contact-card">
                         <div class="contact-icon"><i class="fab fa-instagram"></i></div>
                         <div>
-                            <h4>Instagram</h4>
-                            <a href="https://www.instagram.com/fitnessformulasi" target="_blank">@fitnessformulasi</a>
+                            <h4>Fitness Formula Instagram</h4>
+                            <a href="https://www.instagram.com/fitnessformulasi" target="_blank" rel="noopener noreferrer">@fitnessformulasi</a>
                         </div>
                     </div>
                     <div class="contact-card">
                         <div class="contact-icon"><i class="fab fa-instagram"></i></div>
                         <div>
                             <h4>Murabbiy Instagram</h4>
-                            <a href="https://www.instagram.com/s_sharafov" target="_blank">@s_sharafov</a>
+                            <a href="https://www.instagram.com/s_sharafov" target="_blank" rel="noopener noreferrer">@s_sharafov</a>
                         </div>
                     </div>
                     <div class="contact-card">
                         <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div>
                             <h4>Manzil</h4>
-                            <span>O'zbekiston</span>
+                            <span>Toshkent, O'zbekiston</span>
                         </div>
                     </div>
                     <div class="contact-social">
                         <h4>Ijtimoiy tarmoqlar</h4>
                         <div class="social-links">
-                            <a href="https://www.instagram.com/fitnessformulasi" target="_blank" class="social-link">
+                            <a href="https://www.instagram.com/fitnessformulasi" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram FF">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="https://www.instagram.com/s_sharafov" target="_blank" class="social-link">
+                            <a href="https://www.instagram.com/s_sharafov" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram Sirojiddin">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="#" target="_blank" class="social-link">
+                            <a href="https://t.me/fitnessformulasi" target="_blank" rel="noopener noreferrer" class="social-link" title="Telegram">
                                 <i class="fab fa-telegram"></i>
                             </a>
-                            <a href="#" target="_blank" class="social-link">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                            <a href="#" target="_blank" class="social-link">
-                                <i class="fab fa-tiktok"></i>
+                            <a href="tel:+998773855550" class="social-link" title="Qo'ng'iroq qilish">
+                                <i class="fas fa-phone-alt"></i>
                             </a>
                         </div>
                     </div>
                 </div>
+                
                 <div class="contact-form-block">
                     <form class="contact-form" id="contactForm">
                         <h3><i class="fas fa-paper-plane"></i> Murojaat qoldiring</h3>
                         <div class="form-group">
-                            <input type="text" id="name" placeholder="Ismingiz" required>
+                            <input type="text" id="name" placeholder="Ismingiz" required autocomplete="name">
                             <label for="name"><i class="fas fa-user"></i></label>
                         </div>
                         <div class="form-group">
-                            <input type="tel" id="phone" placeholder="Telefon raqamingiz" required>
+                            <input type="tel" id="phone" placeholder="+998 90 123 45 67" required autocomplete="tel">
                             <label for="phone"><i class="fas fa-phone"></i></label>
                         </div>
                         <div class="form-group">
@@ -523,13 +528,13 @@
                                 <option value="" disabled selected>Maqsadingizni tanlang</option>
                                 <option value="ozish">Ozish / Vazn yo'qotish</option>
                                 <option value="massa">Mushak massasi yig'ish</option>
-                                <option value="umumiy">Umumiy fitnes</option>
-                                <option value="boshqa">Boshqa</option>
+                                <option value="umumiy">Umumiy sog'lomlik va fitnes</option>
+                                <option value="boshqa">Individual dastur</option>
                             </select>
                             <label for="goal"><i class="fas fa-bullseye"></i></label>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" placeholder="Xabaringiz (ixtiyoriy)" rows="4"></textarea>
+                            <textarea id="message" placeholder="Qo'shimcha savol yoki ma'lumot (ixtiyoriy)" rows="3"></textarea>
                             <label for="message"><i class="fas fa-comment"></i></label>
                         </div>
                         <button type="submit" class="btn btn-primary btn-full">
@@ -547,9 +552,9 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="images/logo.jpg" alt="Fitness Formula" class="footer-logo-img">
+                        <img src="images/logo.jpg" onerror="this.onerror=null; this.src='logo.jpg'" alt="Fitness Formula" class="footer-logo-img">
                     </div>
-                    <p>40 kunlik tana transformatsiya dasturi. Professional murabbiy Sirojiddin Sharafov nazoratida sifatli natijaga erishing.</p>
+                    <p>40 kunlik tana transformatsiya dasturi. Professional murabbiy <strong>Sirojiddin Sharafov</strong> nazoratida kafolatlangan sifatli natijaga erishing.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Tezkor havolalar</h4>
@@ -563,11 +568,11 @@
                 </div>
                 <div class="footer-contact">
                     <h4>Bog'lanish</h4>
-                    <p><i class="fas fa-phone-alt"></i> +998 77-385-55-50</p>
-                    <p><i class="fab fa-instagram"></i> @fitnessformulasi</p>
-                    <p><i class="fab fa-instagram"></i> @s_sharafov</p>
-                    <p><i class="fab fa-telegram"></i> @fitnessformulasi</p>
-                    <p><i class="fas fa-map-marker-alt"></i> O'zbekiston</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+998773855550">+998 77-385-55-50</a></p>
+                    <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/fitnessformulasi" target="_blank" rel="noopener noreferrer">@fitnessformulasi</a></p>
+                    <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/s_sharafov" target="_blank" rel="noopener noreferrer">@s_sharafov</a></p>
+                    <p><i class="fab fa-telegram"></i> <a href="https://t.me/fitnessformulasi" target="_blank" rel="noopener noreferrer">@fitnessformulasi</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Toshkent, O'zbekiston</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -583,6 +588,5 @@
     </button>
 
     <script src="script.js"></script>
-    <script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
